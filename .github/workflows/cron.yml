@@ -4,13 +4,335 @@ on:
   schedule:
     - cron: "*/5 1-11 * * 1-5"
     - cron: "29 1 * * 1-5"
+    - cron: "0 5 * * 1-5"
   workflow_dispatch:
 
 jobs:
-  ping:
+  shift_1:
     runs-on: ubuntu-latest
+    timeout-minutes: 350
     steps:
-      - name: Ping Vercel Unified Reminder Endpoint
+      - name: Active Cloud Ticker (5.5h Shift - Mon-Fri 08:00-18:05 BKK)
         run: |
-          curl -fsSL -m 25 -H "User-Agent: GitHub-Public-Cloud-Cron/1.0" "https://rin-meeting-notifier.vercel.app/api/reminder"
-          echo ""
+          echo "☁️ Starting GitHub Cloud Active Ticker Shift..."
+          for i in $(seq 1 110); do
+            DOW=$(TZ="Asia/Bangkok" date +%u)
+            HM=$(TZ="Asia/Bangkok" date +%H%M)
+            TS=$(TZ="Asia/Bangkok" date "+%Y-%m-%d %H:%M:%S")
+            if [ "$DOW" -ge 1 ] && [ "$DOW" -le 5 ] && [ "$HM" -ge 0800 ] && [ "$HM" -le 1805 ]; then
+              echo "[$TS BKK] ⏰ Pinging Vercel /api/reminder..."
+              curl -fsSL -m 25 -H "User-Agent: GitHub-Public-Cloud-Cron/2.0" "https://rin-meeting-notifier.vercel.app/api/reminder" || true
+              echo ""
+            else
+              echo "[$TS BKK] 🌙 Outside active window (DOW=$DOW HM=$HM). Standing by on Cloud..."
+            fi
+            sleep 180
+          done
+  shift_2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    needs: shift_1
+    if: always()
+    steps:
+      - name: Active Cloud Ticker (5.5h Shift - Mon-Fri 08:00-18:05 BKK)
+        run: |
+          echo "☁️ Starting GitHub Cloud Active Ticker Shift..."
+          for i in $(seq 1 110); do
+            DOW=$(TZ="Asia/Bangkok" date +%u)
+            HM=$(TZ="Asia/Bangkok" date +%H%M)
+            TS=$(TZ="Asia/Bangkok" date "+%Y-%m-%d %H:%M:%S")
+            if [ "$DOW" -ge 1 ] && [ "$DOW" -le 5 ] && [ "$HM" -ge 0800 ] && [ "$HM" -le 1805 ]; then
+              echo "[$TS BKK] ⏰ Pinging Vercel /api/reminder..."
+              curl -fsSL -m 25 -H "User-Agent: GitHub-Public-Cloud-Cron/2.0" "https://rin-meeting-notifier.vercel.app/api/reminder" || true
+              echo ""
+            else
+              echo "[$TS BKK] 🌙 Outside active window (DOW=$DOW HM=$HM). Standing by on Cloud..."
+            fi
+            sleep 180
+          done
+  shift_3:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    needs: shift_2
+    if: always()
+    steps:
+      - name: Active Cloud Ticker (5.5h Shift - Mon-Fri 08:00-18:05 BKK)
+        run: |
+          echo "☁️ Starting GitHub Cloud Active Ticker Shift..."
+          for i in $(seq 1 110); do
+            DOW=$(TZ="Asia/Bangkok" date +%u)
+            HM=$(TZ="Asia/Bangkok" date +%H%M)
+            TS=$(TZ="Asia/Bangkok" date "+%Y-%m-%d %H:%M:%S")
+            if [ "$DOW" -ge 1 ] && [ "$DOW" -le 5 ] && [ "$HM" -ge 0800 ] && [ "$HM" -le 1805 ]; then
+              echo "[$TS BKK] ⏰ Pinging Vercel /api/reminder..."
+              curl -fsSL -m 25 -H "User-Agent: GitHub-Public-Cloud-Cron/2.0" "https://rin-meeting-notifier.vercel.app/api/reminder" || true
+              echo ""
+            else
+              echo "[$TS BKK] 🌙 Outside active window (DOW=$DOW HM=$HM). Standing by on Cloud..."
+            fi
+            sleep 180
+          done
+  shift_4:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    needs: shift_3
+    if: always()
+    steps:
+      - name: Active Cloud Ticker (5.5h Shift - Mon-Fri 08:00-18:05 BKK)
+        run: |
+          echo "☁️ Starting GitHub Cloud Active Ticker Shift..."
+          for i in $(seq 1 110); do
+            DOW=$(TZ="Asia/Bangkok" date +%u)
+            HM=$(TZ="Asia/Bangkok" date +%H%M)
+            TS=$(TZ="Asia/Bangkok" date "+%Y-%m-%d %H:%M:%S")
+            if [ "$DOW" -ge 1 ] && [ "$DOW" -le 5 ] && [ "$HM" -ge 0800 ] && [ "$HM" -le 1805 ]; then
+              echo "[$TS BKK] ⏰ Pinging Vercel /api/reminder..."
+              curl -fsSL -m 25 -H "User-Agent: GitHub-Public-Cloud-Cron/2.0" "https://rin-meeting-notifier.vercel.app/api/reminder" || true
+              echo ""
+            else
+              echo "[$TS BKK] 🌙 Outside active window (DOW=$DOW HM=$HM). Standing by on Cloud..."
+            fi
+            sleep 180
+          done
+  shift_5:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    needs: shift_4
+    if: always()
+    steps:
+      - name: Active Cloud Ticker (5.5h Shift - Mon-Fri 08:00-18:05 BKK)
+        run: |
+          echo "☁️ Starting GitHub Cloud Active Ticker Shift..."
+          for i in $(seq 1 110); do
+            DOW=$(TZ="Asia/Bangkok" date +%u)
+            HM=$(TZ="Asia/Bangkok" date +%H%M)
+            TS=$(TZ="Asia/Bangkok" date "+%Y-%m-%d %H:%M:%S")
+            if [ "$DOW" -ge 1 ] && [ "$DOW" -le 5 ] && [ "$HM" -ge 0800 ] && [ "$HM" -le 1805 ]; then
+              echo "[$TS BKK] ⏰ Pinging Vercel /api/reminder..."
+              curl -fsSL -m 25 -H "User-Agent: GitHub-Public-Cloud-Cron/2.0" "https://rin-meeting-notifier.vercel.app/api/reminder" || true
+              echo ""
+            else
+              echo "[$TS BKK] 🌙 Outside active window (DOW=$DOW HM=$HM). Standing by on Cloud..."
+            fi
+            sleep 180
+          done
+  shift_6:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    needs: shift_5
+    if: always()
+    steps:
+      - name: Active Cloud Ticker (5.5h Shift - Mon-Fri 08:00-18:05 BKK)
+        run: |
+          echo "☁️ Starting GitHub Cloud Active Ticker Shift..."
+          for i in $(seq 1 110); do
+            DOW=$(TZ="Asia/Bangkok" date +%u)
+            HM=$(TZ="Asia/Bangkok" date +%H%M)
+            TS=$(TZ="Asia/Bangkok" date "+%Y-%m-%d %H:%M:%S")
+            if [ "$DOW" -ge 1 ] && [ "$DOW" -le 5 ] && [ "$HM" -ge 0800 ] && [ "$HM" -le 1805 ]; then
+              echo "[$TS BKK] ⏰ Pinging Vercel /api/reminder..."
+              curl -fsSL -m 25 -H "User-Agent: GitHub-Public-Cloud-Cron/2.0" "https://rin-meeting-notifier.vercel.app/api/reminder" || true
+              echo ""
+            else
+              echo "[$TS BKK] 🌙 Outside active window (DOW=$DOW HM=$HM). Standing by on Cloud..."
+            fi
+            sleep 180
+          done
+  shift_7:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    needs: shift_6
+    if: always()
+    steps:
+      - name: Active Cloud Ticker (5.5h Shift - Mon-Fri 08:00-18:05 BKK)
+        run: |
+          echo "☁️ Starting GitHub Cloud Active Ticker Shift..."
+          for i in $(seq 1 110); do
+            DOW=$(TZ="Asia/Bangkok" date +%u)
+            HM=$(TZ="Asia/Bangkok" date +%H%M)
+            TS=$(TZ="Asia/Bangkok" date "+%Y-%m-%d %H:%M:%S")
+            if [ "$DOW" -ge 1 ] && [ "$DOW" -le 5 ] && [ "$HM" -ge 0800 ] && [ "$HM" -le 1805 ]; then
+              echo "[$TS BKK] ⏰ Pinging Vercel /api/reminder..."
+              curl -fsSL -m 25 -H "User-Agent: GitHub-Public-Cloud-Cron/2.0" "https://rin-meeting-notifier.vercel.app/api/reminder" || true
+              echo ""
+            else
+              echo "[$TS BKK] 🌙 Outside active window (DOW=$DOW HM=$HM). Standing by on Cloud..."
+            fi
+            sleep 180
+          done
+  shift_8:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    needs: shift_7
+    if: always()
+    steps:
+      - name: Active Cloud Ticker (5.5h Shift - Mon-Fri 08:00-18:05 BKK)
+        run: |
+          echo "☁️ Starting GitHub Cloud Active Ticker Shift..."
+          for i in $(seq 1 110); do
+            DOW=$(TZ="Asia/Bangkok" date +%u)
+            HM=$(TZ="Asia/Bangkok" date +%H%M)
+            TS=$(TZ="Asia/Bangkok" date "+%Y-%m-%d %H:%M:%S")
+            if [ "$DOW" -ge 1 ] && [ "$DOW" -le 5 ] && [ "$HM" -ge 0800 ] && [ "$HM" -le 1805 ]; then
+              echo "[$TS BKK] ⏰ Pinging Vercel /api/reminder..."
+              curl -fsSL -m 25 -H "User-Agent: GitHub-Public-Cloud-Cron/2.0" "https://rin-meeting-notifier.vercel.app/api/reminder" || true
+              echo ""
+            else
+              echo "[$TS BKK] 🌙 Outside active window (DOW=$DOW HM=$HM). Standing by on Cloud..."
+            fi
+            sleep 180
+          done
+  shift_9:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    needs: shift_8
+    if: always()
+    steps:
+      - name: Active Cloud Ticker (5.5h Shift - Mon-Fri 08:00-18:05 BKK)
+        run: |
+          echo "☁️ Starting GitHub Cloud Active Ticker Shift..."
+          for i in $(seq 1 110); do
+            DOW=$(TZ="Asia/Bangkok" date +%u)
+            HM=$(TZ="Asia/Bangkok" date +%H%M)
+            TS=$(TZ="Asia/Bangkok" date "+%Y-%m-%d %H:%M:%S")
+            if [ "$DOW" -ge 1 ] && [ "$DOW" -le 5 ] && [ "$HM" -ge 0800 ] && [ "$HM" -le 1805 ]; then
+              echo "[$TS BKK] ⏰ Pinging Vercel /api/reminder..."
+              curl -fsSL -m 25 -H "User-Agent: GitHub-Public-Cloud-Cron/2.0" "https://rin-meeting-notifier.vercel.app/api/reminder" || true
+              echo ""
+            else
+              echo "[$TS BKK] 🌙 Outside active window (DOW=$DOW HM=$HM). Standing by on Cloud..."
+            fi
+            sleep 180
+          done
+  shift_10:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    needs: shift_9
+    if: always()
+    steps:
+      - name: Active Cloud Ticker (5.5h Shift - Mon-Fri 08:00-18:05 BKK)
+        run: |
+          echo "☁️ Starting GitHub Cloud Active Ticker Shift..."
+          for i in $(seq 1 110); do
+            DOW=$(TZ="Asia/Bangkok" date +%u)
+            HM=$(TZ="Asia/Bangkok" date +%H%M)
+            TS=$(TZ="Asia/Bangkok" date "+%Y-%m-%d %H:%M:%S")
+            if [ "$DOW" -ge 1 ] && [ "$DOW" -le 5 ] && [ "$HM" -ge 0800 ] && [ "$HM" -le 1805 ]; then
+              echo "[$TS BKK] ⏰ Pinging Vercel /api/reminder..."
+              curl -fsSL -m 25 -H "User-Agent: GitHub-Public-Cloud-Cron/2.0" "https://rin-meeting-notifier.vercel.app/api/reminder" || true
+              echo ""
+            else
+              echo "[$TS BKK] 🌙 Outside active window (DOW=$DOW HM=$HM). Standing by on Cloud..."
+            fi
+            sleep 180
+          done
+  shift_11:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    needs: shift_10
+    if: always()
+    steps:
+      - name: Active Cloud Ticker (5.5h Shift - Mon-Fri 08:00-18:05 BKK)
+        run: |
+          echo "☁️ Starting GitHub Cloud Active Ticker Shift..."
+          for i in $(seq 1 110); do
+            DOW=$(TZ="Asia/Bangkok" date +%u)
+            HM=$(TZ="Asia/Bangkok" date +%H%M)
+            TS=$(TZ="Asia/Bangkok" date "+%Y-%m-%d %H:%M:%S")
+            if [ "$DOW" -ge 1 ] && [ "$DOW" -le 5 ] && [ "$HM" -ge 0800 ] && [ "$HM" -le 1805 ]; then
+              echo "[$TS BKK] ⏰ Pinging Vercel /api/reminder..."
+              curl -fsSL -m 25 -H "User-Agent: GitHub-Public-Cloud-Cron/2.0" "https://rin-meeting-notifier.vercel.app/api/reminder" || true
+              echo ""
+            else
+              echo "[$TS BKK] 🌙 Outside active window (DOW=$DOW HM=$HM). Standing by on Cloud..."
+            fi
+            sleep 180
+          done
+  shift_12:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    needs: shift_11
+    if: always()
+    steps:
+      - name: Active Cloud Ticker (5.5h Shift - Mon-Fri 08:00-18:05 BKK)
+        run: |
+          echo "☁️ Starting GitHub Cloud Active Ticker Shift..."
+          for i in $(seq 1 110); do
+            DOW=$(TZ="Asia/Bangkok" date +%u)
+            HM=$(TZ="Asia/Bangkok" date +%H%M)
+            TS=$(TZ="Asia/Bangkok" date "+%Y-%m-%d %H:%M:%S")
+            if [ "$DOW" -ge 1 ] && [ "$DOW" -le 5 ] && [ "$HM" -ge 0800 ] && [ "$HM" -le 1805 ]; then
+              echo "[$TS BKK] ⏰ Pinging Vercel /api/reminder..."
+              curl -fsSL -m 25 -H "User-Agent: GitHub-Public-Cloud-Cron/2.0" "https://rin-meeting-notifier.vercel.app/api/reminder" || true
+              echo ""
+            else
+              echo "[$TS BKK] 🌙 Outside active window (DOW=$DOW HM=$HM). Standing by on Cloud..."
+            fi
+            sleep 180
+          done
+  shift_13:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    needs: shift_12
+    if: always()
+    steps:
+      - name: Active Cloud Ticker (5.5h Shift - Mon-Fri 08:00-18:05 BKK)
+        run: |
+          echo "☁️ Starting GitHub Cloud Active Ticker Shift..."
+          for i in $(seq 1 110); do
+            DOW=$(TZ="Asia/Bangkok" date +%u)
+            HM=$(TZ="Asia/Bangkok" date +%H%M)
+            TS=$(TZ="Asia/Bangkok" date "+%Y-%m-%d %H:%M:%S")
+            if [ "$DOW" -ge 1 ] && [ "$DOW" -le 5 ] && [ "$HM" -ge 0800 ] && [ "$HM" -le 1805 ]; then
+              echo "[$TS BKK] ⏰ Pinging Vercel /api/reminder..."
+              curl -fsSL -m 25 -H "User-Agent: GitHub-Public-Cloud-Cron/2.0" "https://rin-meeting-notifier.vercel.app/api/reminder" || true
+              echo ""
+            else
+              echo "[$TS BKK] 🌙 Outside active window (DOW=$DOW HM=$HM). Standing by on Cloud..."
+            fi
+            sleep 180
+          done
+  shift_14:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    needs: shift_13
+    if: always()
+    steps:
+      - name: Active Cloud Ticker (5.5h Shift - Mon-Fri 08:00-18:05 BKK)
+        run: |
+          echo "☁️ Starting GitHub Cloud Active Ticker Shift..."
+          for i in $(seq 1 110); do
+            DOW=$(TZ="Asia/Bangkok" date +%u)
+            HM=$(TZ="Asia/Bangkok" date +%H%M)
+            TS=$(TZ="Asia/Bangkok" date "+%Y-%m-%d %H:%M:%S")
+            if [ "$DOW" -ge 1 ] && [ "$DOW" -le 5 ] && [ "$HM" -ge 0800 ] && [ "$HM" -le 1805 ]; then
+              echo "[$TS BKK] ⏰ Pinging Vercel /api/reminder..."
+              curl -fsSL -m 25 -H "User-Agent: GitHub-Public-Cloud-Cron/2.0" "https://rin-meeting-notifier.vercel.app/api/reminder" || true
+              echo ""
+            else
+              echo "[$TS BKK] 🌙 Outside active window (DOW=$DOW HM=$HM). Standing by on Cloud..."
+            fi
+            sleep 180
+          done
+  shift_15:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    needs: shift_14
+    if: always()
+    steps:
+      - name: Active Cloud Ticker (5.5h Shift - Mon-Fri 08:00-18:05 BKK)
+        run: |
+          echo "☁️ Starting GitHub Cloud Active Ticker Shift..."
+          for i in $(seq 1 110); do
+            DOW=$(TZ="Asia/Bangkok" date +%u)
+            HM=$(TZ="Asia/Bangkok" date +%H%M)
+            TS=$(TZ="Asia/Bangkok" date "+%Y-%m-%d %H:%M:%S")
+            if [ "$DOW" -ge 1 ] && [ "$DOW" -le 5 ] && [ "$HM" -ge 0800 ] && [ "$HM" -le 1805 ]; then
+              echo "[$TS BKK] ⏰ Pinging Vercel /api/reminder..."
+              curl -fsSL -m 25 -H "User-Agent: GitHub-Public-Cloud-Cron/2.0" "https://rin-meeting-notifier.vercel.app/api/reminder" || true
+              echo ""
+            else
+              echo "[$TS BKK] 🌙 Outside active window (DOW=$DOW HM=$HM). Standing by on Cloud..."
+            fi
+            sleep 180
+          done
